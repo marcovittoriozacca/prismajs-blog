@@ -53,9 +53,21 @@ const updatePost = (slug, newData, callback) => {
         .catch(err => console.error(err));
 }
 
+const deletePost = (slug, callback) => {
+    prisma.post
+        .delete({
+            where: {
+                slug: slug
+            }
+        })
+        .then(dp => callback(dp))
+        .catch(err => console.error(err))
+}
+
 module.exports = {
     createPost,
     showPost,
     indexPost,
     updatePost,
+    deletePost
 }

@@ -1,6 +1,6 @@
 const { createCategory } = require('./utils/crud_category.js');
 const { createTag } = require('./utils/crud_tag.js');
-const { createPost, showPost, indexPost, updatePost } = require('./utils/crud_post.js');
+const { createPost, showPost, indexPost, updatePost, deletePost } = require('./utils/crud_post.js');
 
 // Create function for categories
 // createCategory('gaming', (category) => console.log(`New Category: ${category}`));
@@ -35,17 +35,20 @@ const { createPost, showPost, indexPost, updatePost } = require('./utils/crud_po
 // indexPost(list => console.log(list))
 
 // Update function that updates a record based on his slug
-const upPost = {
-    title: "First Post",
-    categoryId: 5,
-    tags: {
-        set:[
-            {id: 1},
-            {id: 5},
-            {id: 2},
-        ]
-    },
-}
+// const upPost = {
+//     title: "First Post",
+//     categoryId: 5,
+//     tags: {
+//         set:[
+//             {id: 1},
+//             {id: 5},
+//             {id: 2},
+//         ]
+//     },
+// }
 
 
-updatePost("post-2", upPost, (update) => console.log(update) );
+// updatePost("post-2", upPost, (update) => console.log(update) );
+
+// Delete function to delete a post based on the slug
+deletePost("first-post", (dp) => console.log(`Post Deleted: ${dp}`))
