@@ -12,6 +12,30 @@ const createPost = (post, callback) => {
         .catch(err => console.error(err));
 }
 
+const showPost = (slug, callback) => {
+    prisma.post
+        .findUnique({
+            where: {
+                slug: slug
+            },
+            include: {
+                category: {
+                    select: {
+                        name: true,
+                    }
+                },
+                tags: {
+                    select: {
+                        name: true,
+                    }
+                },
+            }
+        })
+        .then(pf => callback(pf))
+        .catch(err => console.error(err))
+}
+
 module.exports = {
     createPost,
+    showPost,
 }
