@@ -6,7 +6,8 @@ const {
     indexPost, 
     updatePost, 
     deletePost, 
-    publishedPosts 
+    publishedPosts,
+    postsBasedOnAString
 } = require('./utils/crud_post.js');
 
 // Create function for categories
@@ -62,4 +63,7 @@ const {
 
 
 // BONUS: publishedPost function that returns all published post (published: true)
-publishedPosts(fp => console.log(fp));
+// publishedPosts(fp => console.log(fp));
+
+// BONUS: list of posts that contains a given string
+postsBasedOnAString("desc", (list) => console.log(list));

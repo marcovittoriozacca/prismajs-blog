@@ -75,11 +75,23 @@ const publishedPosts = (callback) => {
         .catch(err => console.error(err));
 }
 
+const postsBasedOnAString = (string, callback) => {
+    prisma.post
+        .findMany({
+            where: {
+                content: {contains: string}
+            }
+        })
+        .then(fp => callback(fp))
+        .catch(err => console.error(err));
+}
+
 module.exports = {
     createPost,
     showPost,
     indexPost,
     updatePost,
     deletePost,
-    publishedPosts
+    publishedPosts,
+    postsBasedOnAString
 }
