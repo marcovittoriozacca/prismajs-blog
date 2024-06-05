@@ -35,7 +35,15 @@ const showPost = (slug, callback) => {
         .catch(err => console.error(err))
 }
 
+const indexPost = (callback) => {
+    prisma.post
+        .findMany()
+        .then(p => callback(p))
+        .catch(err => console.error(err));
+}
+
 module.exports = {
     createPost,
     showPost,
+    indexPost,
 }
