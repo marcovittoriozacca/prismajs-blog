@@ -1,6 +1,13 @@
 const { createCategory } = require('./utils/crud_category.js');
 const { createTag } = require('./utils/crud_tag.js');
-const { createPost, showPost, indexPost, updatePost, deletePost } = require('./utils/crud_post.js');
+const { 
+    createPost, 
+    showPost, 
+    indexPost, 
+    updatePost, 
+    deletePost, 
+    publishedPosts 
+} = require('./utils/crud_post.js');
 
 // Create function for categories
 // createCategory('gaming', (category) => console.log(`New Category: ${category}`));
@@ -51,4 +58,8 @@ const { createPost, showPost, indexPost, updatePost, deletePost } = require('./u
 // updatePost("post-2", upPost, (update) => console.log(update) );
 
 // Delete function to delete a post based on the slug
-deletePost("first-post", (dp) => console.log(`Post Deleted: ${dp}`))
+// deletePost("first-post", (dp) => console.log(`Post Deleted: ${dp}`))
+
+
+// BONUS: publishedPost function that returns all published post (published: true)
+publishedPosts(fp => console.log(fp));
