@@ -34,6 +34,7 @@ const { createPost, showPost, indexPost, updatePost } = require('./utils/crud_po
 // Index functions that returs a list of all Posts
 // indexPost(list => console.log(list))
 
+// Update function that updates a record based on his slug
 const upPost = {
     title: "First Post",
     categoryId: 5,
