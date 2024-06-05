@@ -1,6 +1,6 @@
 const { createCategory } = require('./utils/crud_category.js');
 const { createTag } = require('./utils/crud_tag.js');
-const { createPost, showPost, indexPost } = require('./utils/crud_post.js');
+const { createPost, showPost, indexPost, updatePost } = require('./utils/crud_post.js');
 
 // Create function for categories
 // createCategory('gaming', (category) => console.log(`New Category: ${category}`));
@@ -32,4 +32,19 @@ const { createPost, showPost, indexPost } = require('./utils/crud_post.js');
 // showPost("post-2", (post) => console.log(post));
 
 // Index functions that returs a list of all Posts
-indexPost(list => console.log(list))
+// indexPost(list => console.log(list))
+
+const upPost = {
+    title: "First Post",
+    categoryId: 5,
+    tags: {
+        set:[
+            {id: 1},
+            {id: 5},
+            {id: 2},
+        ]
+    },
+}
+
+
+updatePost("post-2", upPost, (update) => console.log(update) );

@@ -1,11 +1,9 @@
-const slugify = require('slugify')
+const { makeSlug } = require('./utils.js');
 const prisma = require('./prismaClient.js');
 
 
 const createPost = (post, callback) => {
-    const {title} = post;
-    const slug = slugify(title, {lower: true});
-    post.slug = slug;
+    post.slug = makeSlug(post.title);
     prisma.post
         .create({data: post})
         .then(p => callback(p))
@@ -42,8 +40,22 @@ const indexPost = (callback) => {
         .catch(err => console.error(err));
 }
 
+const updatePost = (slug, newData, callback) => {
+    newData.slug = makeSlug(newData.title);
+    prisma.post
+        .update({
+            where: {
+                slug: slug
+            },
+            data: newData
+        })
+        .then(up => callback(up))
+        .catch(err => console.error(err));
+}
+
 module.exports = {
     createPost,
     showPost,
     indexPost,
+    updatePost,
 }
